@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказы{% endblock %}
+
+{% block header %}<h1 class="text-left">Заказы</h1>{% endblock %}
+
+{% block body %}
+    {% for order in orders %}
+        {% if not order.id|divisibleby:2 %}
+            <div class="row">
+        {% endif %}
+        <div class="col-lg-6 col-md-6">
+            {% include 'order_element.html' with element=order %}
+        </div>
+        {% if order.id|divisibleby:2 or forloop.last %}
+            </div>
+            <hr>
+        {% endif %}
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+{% endblock %}
