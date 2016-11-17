@@ -16,9 +16,8 @@ for i in range(1, 10):
     )
 
 
-class OrdersView(View):
-    def get(self, request):
-        return render(request, 'orders.html', data)
+def main_page(request):
+    return render(request, 'orders.html', data)
 
 
 class OrderView(View):

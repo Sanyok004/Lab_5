@@ -20,6 +20,6 @@ from Lab5_App.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', OrdersView.as_view(), name='main'),
+    url(r'^$', main_page, name='main'),
     url(r'^order/(?P<id>\d+)', OrderView.as_view(), name='order_url'),
 ]
